@@ -20,8 +20,13 @@ on run argv
 			if count of argv is equal to 1 then
 				tell application "Spotify" to play
 			else
-				set uri to item 2 of argv
-				tell application "Spotify" to play track uri
+                                set uri to item 2 of argv
+
+                                if uri is equal to "wiredmedia" or uri is equal to "wired" or uri is equal to "wm" then
+                                        set uri to "spotify:user:benlumley:playlist:5y5yV6Ici1Jr0HgSwTrCZo"
+                                end if
+
+                                tell application "Spotify" to play track uri
 			end if	
 		else if command is equal to "pause" or command is equal to "stop" then
 			tell application "Spotify" to pause
